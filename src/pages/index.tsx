@@ -1,5 +1,6 @@
-import Image from "next/image";
 import localFont from "next/font/local";
+import Navbar from "@/components/Navbar";
+import Image from "next/image";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -13,103 +14,94 @@ const geistMono = localFont({
 });
 
 export default function Home() {
-  return (
-    <div
-      className={`${geistSans.variable} ${geistMono.variable} grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]`}
-    >
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/pages/index.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  return ( 
+    <div className={`${geistSans.variable} ${geistMono.variable} flex flex-col min-h-screen`}>
+      <Navbar/>
+      <main className="flex-1 flex text-white bg-black">
+        <div className="flex flex-col lg:flex-row">
+          {/* Left Section */}
+          <div className="flex flex-col flex-1 h-full">
+            {/* Main Text Block */}
+            <div className="lg:p-8 px-6 py-10 border border-[#1E1E1E] flex-1 flex flex-col justify-end p-6">
+              <h2 className="lg:text-8xl text-5xl font-bold mb-14">{">_"}</h2>
+              <h2 className="text-xl font-bold">Nick Lewis</h2>
+              <h1 className="text-3xl font-bold mt-4 w-3/4">
+                Sustainable web developer for purpose-led brands
+              </h1>
+              <p className="mt-4 w-3/4 text-sm">
+                Based in Bristol, I’m building efficient,{" "}
+                <a href="#" className="text-blue-400 underline">
+                  low-carbon
+                </a>{" "}
+                WordPress and static websites for businesses across the UK and Europe.
+              </p>
+              {/* <div className="">
+                <Image
+                  src="/mascot.png"
+                  alt="Project Screenshot"
+                  width={300}
+                  height={200}
+                  className="bg-blue-500"
+                />
+              </div> */}
+            </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+            {/* Insights and Services Block */}
+            <div className="flex flex-col flex-1 lg:flex-row">
+              {/* Insights */}
+              <div className="border border-[#1E1E1E] p-6 flex-1">
+                <h3 className="text-lg font-bold">Insights</h3>
+                <div className="relative text-5xl font-extrabold mt-4">
+                  20%
+                  <span className="absolute top-0 transform -rotate-45 text-sm">{" ->"}</span>
+                </div>
+                <p className="mt-2">
+                  The average reduction in digital carbon emissions when transferring to a green hosting provider.
+                </p>
+              </div>
+
+              {/* Services */}
+              <div className="border border-[#1E1E1E] p-6 flex-1">
+                <h3 className="text-lg font-bold">Services</h3>
+                <p className="mt-4">
+                  From front-end development to websites built with WordPress; lightweight design to consultancy, I have services to offer everyone.
+                </p>
+                <a
+                  href="/services"
+                  className="mt-4 px-4 py-2 bg-lime-300 text-black rounded inline-block"
+                >
+                  Get started
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Section */}
+          <div className="relative flex-1 border border-[#1E1E1E] p-8 gap-2">
+            <div className="absolute inset-0">
+              <div className="flex flex-col h-full">
+                {Array.from({ length: 1 }).map((_, rowIndex) => (
+                  <div key={rowIndex} className="flex flex-1">
+                    {Array.from({ length: 10 }).map((_, colIndex) => (
+                      <div
+                        key={colIndex}
+                        className={`flex-1 border-[#1E1E1E] ${rowIndex < 3 ? 'border-b' : ''} ${colIndex < 9 ? 'border-r' : ''}`}
+                      ></div>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="relative z-10">
+              <h3 className="text-lg font-bold">Latest project</h3>
+              <h4 className="text-2xl font-extrabold mt-4">Elsa Selva</h4>
+              <p className="mt-4">
+                A new low-carbon website build for Elsa Selva, creating spaces to connect for our regenerative future.
+              </p>
+            </div>
+          </div>
         </div>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
     </div>
   );
 }

@@ -1,13 +1,13 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import type { NextApiRequest, NextApiResponse } from "next";
+import { NextApiRequest, NextApiResponse } from 'next';
+import initMiddleware from '../../../lib/init-middleware';
 
-type Data = {
-  name: string;
-};
+// Initialize the cors middleware
+const cors = initMiddleware;
 
-export default function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<Data>,
-) {
-  res.status(200).json({ name: "John Doe" });
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  // Run the middleware
+  await cors(req, res);
+
+  // Rest of your API logic
+  res.status(200).json({ message: 'Hello from Next.js API!' });
 }
