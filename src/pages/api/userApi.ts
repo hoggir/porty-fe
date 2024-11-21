@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import axios from 'axios';
 
 const baseURL = process.env.NEXT_PUBLIC_API_BASE_URL+"/auth"; // Access the base URL from the environment variable

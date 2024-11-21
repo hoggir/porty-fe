@@ -19,7 +19,7 @@ export default function Verify() {
             setMessage('Verification failed. Please try again.');
           }
         })
-        .catch((error) => {
+        .catch(() => {
           setMessage('Verification failed. Please try again.');
         });
     }

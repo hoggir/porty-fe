@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
@@ -19,7 +20,7 @@ export default function SignUp() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    dispatch(signUp({ email, password })).then((action: any) => {
+    dispatch(signUp({ email, password })).then((action) => {
       if (signUp.fulfilled.match(action)) {
         router.push({
           pathname: '/email-confirmation',

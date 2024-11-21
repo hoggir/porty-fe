@@ -1,10 +1,10 @@
+/* eslint-disable react/no-unescaped-entities */
 import { useDispatch, useSelector } from 'react-redux';
 import { login, clearError } from '../slices/userSlice';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { RootState, store } from '../store';
-import { GetServerSideProps } from 'next';
 
 export default function Login() {
   const dispatch = useDispatch<typeof store.dispatch>();
@@ -20,7 +20,7 @@ export default function Login() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    dispatch(login({ email, password })).then((action: any) => {
+    dispatch(login({ email, password })).then((action) => {
       if (login.fulfilled.match(action)) {
         router.push('/');
       }
@@ -175,10 +175,3 @@ export default function Login() {
     </div>
   );
 }
-
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  // You can fetch data here and pass it to the component as props
-  return {
-    props: {}, // will be passed to the page component as props
-  };
-};
