@@ -16,14 +16,14 @@ export default function Home() {
   return ( 
     <div className={`${geistSans.variable} ${geistMono.variable} flex flex-col min-h-screen`}>
       <Navbar/>
-      <main className="flex-1 flex text-white bg-black">
+      <main className="flex-1 flex text-white bg-black lg:px-0 px-2">
         <div className="flex flex-col lg:flex-row">
           {/* Left Section */}
           <div className="flex flex-col flex-1 h-full">
             {/* Main Text Block */}
             <div className="lg:p-8 px-6 py-10 border border-[#1E1E1E] flex-1 flex flex-col justify-end p-6">
               <h2 className="lg:text-8xl text-5xl font-bold mb-14">{">_"}</h2>
-              <h2 className="text-xl font-bold">Nick Lewis</h2>
+              <h2 className="text-xl font-bold">#Torpor</h2>
               <h1 className="text-3xl font-bold mt-4 w-3/4">
                 Sustainable web developer for purpose-led brands
               </h1>
